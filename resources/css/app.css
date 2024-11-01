@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.hoho {
+    transition: opacity 0.3s ease-in-out;
+    position: relative;
+}
+
+.testingtheline {
+    border-bottom: 3px solid black;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: moveRight 2s;
+}
+@keyframes moveRight {
+    to {
+        left: 100%;
+    }
+}
