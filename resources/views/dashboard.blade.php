@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout  >
     <x-slot name="header">
         <div class="flex justify-center items-center font-semibold underline">
             <a class="hover:opacity-[0.7] hover:duration-200" href="/products">Created Products</a>
@@ -9,7 +9,7 @@
     </x-slot>
     @if (session('success'))
         <div
-            class="success-message flex justify-center relative items-center pt-10 hoho border w-[400px] overflow-hidden m-auto">
+            class="success-message flex justify-center relative items-center pt-10 hoho  w-[400px] overflow-hidden m-auto">
             <div class="w-[400px] bg-green-500 p-3 shadow-md gap-2 flex items-center">
                 <div class="testingtheline w-[400px]"></div>
                 <i class="bi text-4xl bi-check-circle text-white"></i>
@@ -43,7 +43,10 @@
                     </div>
                     <input name="user_id" value="{{ Auth::user()->id }}" type="hidden">
                 </form>
+                <div class="h-[100px]"></div>
             </div>
         </div>
+        
     </div>
+    
 </x-app-layout>

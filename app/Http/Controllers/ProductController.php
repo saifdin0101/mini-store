@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -14,9 +15,11 @@ class ProductController extends Controller
     {
         //
     $products = Product::all();
-        return view('created-products',compact('products'));
-    }
+    $user = Auth::user();
 
+    $addedProductsCount = $user->cartproducts()->count();
+        return view('created-products',compact('products','addedProductsCount'));
+    }
     /**
      * Show the form for creating a new resource.
      */
