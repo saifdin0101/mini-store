@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -65,11 +66,19 @@ class AdminController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Admin $admin)
+    public function update(Request $request, User $user)
     {
-        //
+       
+        if ($user->role == 'client') {
+            $user->role = 'moderator';
+            $user->save();
+        } else {
+            $user->role = 'client';
+            $user->save();
+        }
+        
+        return back();
     }
-
     /**
      * Remove the specified resource from storage.
      */
