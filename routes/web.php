@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/products/added-products', [CartController::class, 'index'])->name('products.added-products');
     Route::post('/products/added-products/store', [CartController::class, 'store'])->name('products.added-products.store');
     Route::delete('/products/added-products/destroy/{id}', [CartController::class, 'destroy'])->name('products.added-products.destory');
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware("roles");
     Route::delete('/user/destroy/{user}', [AdminController::class, 'destroy'])->name('user.destroy') ;
     Route::post('/restore-user/{user}', [AdminController::class, 'restoreUser'])->name('restore-user');
 

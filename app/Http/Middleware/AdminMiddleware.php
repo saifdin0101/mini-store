@@ -23,6 +23,6 @@ class AdminMiddleware
         if ($user && ($user->role == 'admin' || $user->role == 'moderator')) {
             return $next($request);
         }
-         return back();
+         return redirect()->route('dashboard');
     }
 }

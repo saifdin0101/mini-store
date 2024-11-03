@@ -1,7 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex justify-center items-center font-semibold underline">
-            <a class="hover:opacity-[0.7] hover:duration-200" href="/products">Created Products</a>
+        <div class="flex justify-center items-center font-semibold underline ">
+            <a class="hover:opacity-[0.7] hover:duration-200" href="/products">Show Products</a>
+            @role('admin')
+            <a class=" pl-3 hover:opacity-[0.7] hover:duration-200" href="/admin">Admin Section</a>
+            @endrole()
         </div>
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Dashboard') }}
