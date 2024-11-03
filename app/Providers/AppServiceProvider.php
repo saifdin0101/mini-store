@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,10 +21,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // $loggedUser  = User::where("id", auth()->user()->id)->first();
-        // view()->share([
-        //     'loggedUser' => $loggedUser,
-        // ]);
+        Blade::directive('role', function (string $role) {
+            return "<?php if (Auth::check() && Auth::user()->hasRole($role)) : ?>";
+        });
+
+        Blade::directive('endrole', function () {
+            return "<?php endif ; ?>";
+        });
     }
-    
 }

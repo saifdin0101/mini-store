@@ -1,4 +1,4 @@
-<x-app-layout  >
+<x-app-layout>
     <x-slot name="header">
         <div class="flex justify-center items-center font-semibold underline">
             <a class="hover:opacity-[0.7] hover:duration-200" href="/products">Created Products</a>
@@ -46,7 +46,10 @@
                 <div class="h-[100px]"></div>
             </div>
         </div>
-        
+
     </div>
-    
+    @role('admin')
+        <div>hello</div>
+    @endrole()
+
 </x-app-layout>
